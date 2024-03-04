@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
-
-class ProfileView extends StatefulWidget {
-  const ProfileView({super.key});
+class EmployeeView extends StatefulWidget {
+  const EmployeeView({super.key});
 
   @override
-  State<ProfileView> createState() => _ProfileViewState();
+  State<EmployeeView> createState() => _EmployeeViewState();
 }
 
-class _ProfileViewState extends State<ProfileView> {
-
+class _EmployeeViewState extends State<EmployeeView> {
   int count = 0;
 
   @override
@@ -18,7 +16,7 @@ class _ProfileViewState extends State<ProfileView> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Current profile: $count'),
+          Text('Current main: $count'),
           ElevatedButton(
             onPressed: () {
               setState(() {

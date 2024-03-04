@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MotorView extends StatefulWidget {
-  const MotorView({super.key});
+
+class SaleView extends StatefulWidget {
+  const SaleView({super.key});
 
   @override
-  State<MotorView> createState() => _MotorViewState();
+  State<SaleView> createState() => _SaleViewState();
 }
 
-class _MotorViewState extends State<MotorView> {
+class _SaleViewState extends State<SaleView> {
+
   int count = 0;
 
   @override
@@ -16,7 +18,7 @@ class _MotorViewState extends State<MotorView> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Current main: $count'),
+          Text('Current profile: $count'),
           ElevatedButton(
             onPressed: () {
               setState(() {
