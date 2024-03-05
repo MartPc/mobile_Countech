@@ -39,9 +39,9 @@ class _MainScreenState extends State<MainScreen> {
           elevation: 0,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              activeIcon: Icon( Icons.home_filled),
-              label: 'Principal',
+              icon: Icon(Icons.people_alt_outlined),
+              activeIcon: Icon( Icons.people_alt),
+              label: 'Empleados',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.fact_check_outlined),
@@ -51,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
             BottomNavigationBarItem(
               icon: Icon(Icons.account_circle_outlined),
               activeIcon: Icon( Icons.account_circle_rounded),
-              label: 'Perfil', 
+              label: 'Ventas', 
             ),
           ],
         ),

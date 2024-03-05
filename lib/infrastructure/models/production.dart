@@ -4,29 +4,13 @@
 
 import 'dart:convert';
 
-Production productionFromJson(String str) => Production.fromJson(json.decode(str));
+List<Production> productionFromJson(String str) => List<Production>.from(json.decode(str).map((x) => Production.fromJson(x)));
 
-String productionToJson(Production data) => json.encode(data.toJson());
+String productionToJson(List<Production> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Production {
-    final List<ListaPedido> listaPedidos;
-
-    Production({
-        required this.listaPedidos,
-    });
-
-    factory Production.fromJson(Map<String, dynamic> json) => Production(
-        listaPedidos: List<ListaPedido>.from(json["listaPedidos"].map((x) => ListaPedido.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "listaPedidos": List<dynamic>.from(listaPedidos.map((x) => x.toJson())),
-    };
-}
-
-class ListaPedido {
     final int id;
-    final int listaPedidoCliente;
+    final int productionCliente;
     final String ordenTrabajo;
     final DateTime fechaOrdenTrabajo;
     final DateTime fechaRegistro;
@@ -48,9 +32,9 @@ class ListaPedido {
     final Cliente cliente;
     final List<ProcesoEnReferenciaEnPedido> procesoEnReferenciaEnPedidos;
 
-    ListaPedido({
+    Production({
         required this.id,
-        required this.listaPedidoCliente,
+        required this.productionCliente,
         required this.ordenTrabajo,
         required this.fechaOrdenTrabajo,
         required this.fechaRegistro,
@@ -73,9 +57,9 @@ class ListaPedido {
         required this.procesoEnReferenciaEnPedidos,
     });
 
-    factory ListaPedido.fromJson(Map<String, dynamic> json) => ListaPedido(
+    factory Production.fromJson(Map<String, dynamic> json) => Production(
         id: json["id"],
-        listaPedidoCliente: json["cliente"],
+        productionCliente: json["cliente"],
         ordenTrabajo: json["ordenTrabajo"],
         fechaOrdenTrabajo: DateTime.parse(json["fechaOrdenTrabajo"]),
         fechaRegistro: DateTime.parse(json["fechaRegistro"]),
@@ -100,7 +84,7 @@ class ListaPedido {
 
     Map<String, dynamic> toJson() => {
         "id": id,
-        "cliente": listaPedidoCliente,
+        "cliente": productionCliente,
         "ordenTrabajo": ordenTrabajo,
         "fechaOrdenTrabajo": "${fechaOrdenTrabajo.year.toString().padLeft(4, '0')}-${fechaOrdenTrabajo.month.toString().padLeft(2, '0')}-${fechaOrdenTrabajo.day.toString().padLeft(2, '0')}",
         "fechaRegistro": "${fechaRegistro.year.toString().padLeft(4, '0')}-${fechaRegistro.month.toString().padLeft(2, '0')}-${fechaRegistro.day.toString().padLeft(2, '0')}",
