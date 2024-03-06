@@ -35,7 +35,7 @@ class _ProductionViewState extends State<ProductionView> {
         production = List<Map<String, dynamic>>.from(response.data)
             .map((e) => Production.fromJson(e))
             .toList();
-            filterItems = production;
+            filterItems = production?.where((element) => element.estado != 'Terminado').toList();
       });
     } catch (e) {
       print(e);
@@ -80,6 +80,8 @@ class _ProductionViewState extends State<ProductionView> {
               child:
                    filterItems == null
               ? CircularProgressIndicator()
+              : filterItems!.isEmpty
+              ? Text('No se encontraron pedidos')
               : ListView.builder(
                   itemCount: filterItems?.length ?? 0,
                   itemBuilder: (BuildContext context, int index) {
