@@ -1,7 +1,5 @@
 import 'package:accordion/accordion.dart';
-import 'package:countech_app/infrastructure/models/data.dart';
 import 'package:countech_app/infrastructure/models/production.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
@@ -45,7 +43,7 @@ class _ProductionViewState extends State<ProductionView> {
     void searchItem(String text) {
     setState(() {
       filterItems = production!
-          .where((i) => i.ordenTrabajo.toLowerCase().contains(text.toLowerCase()))
+          .where((i) => i.ordenTrabajo.toLowerCase().contains(text.toLowerCase()) && i.estado != 'Terminado')
           .toList();
     });
   }
@@ -78,10 +76,10 @@ class _ProductionViewState extends State<ProductionView> {
             child: Container(
               margin: EdgeInsets.all(10),
               child:
-                   filterItems == null
-              ? CircularProgressIndicator()
+                  filterItems == null
+              ? const CircularProgressIndicator()
               : filterItems!.isEmpty
-              ? Text('No se encontraron pedidos')
+                ? const Text('No se encontraron pedidos')
               : ListView.builder(
                   itemCount: filterItems?.length ?? 0,
                   itemBuilder: (BuildContext context, int index) {

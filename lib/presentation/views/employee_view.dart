@@ -15,7 +15,6 @@ class _EmployeeViewState extends State<EmployeeView> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
@@ -47,10 +46,7 @@ class _EmployeeViewState extends State<EmployeeView> {
           .toList();
     });
   }
-
-
-
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,8 +64,6 @@ class _EmployeeViewState extends State<EmployeeView> {
             margin: const EdgeInsets.all(10),
             child: filterItems == null
                 ? const CircularProgressIndicator()
-                : filterItems!.isEmpty
-                    ? const Text('No se encontraron empleados')
                 : ListView.builder(
                     itemCount: filterItems?.length ?? 0,
                     itemBuilder: (BuildContext context, int index) {
@@ -246,7 +240,7 @@ class _EmployeeViewState extends State<EmployeeView> {
                                                             ],
                                                           ),
                                                           SizedBox(
-                                                            width: 35,
+                                                            width: 20,
                                                           ),
                                                           Column(
                                                             crossAxisAlignment:
@@ -304,7 +298,7 @@ class _EmployeeViewState extends State<EmployeeView> {
                                                             ],
                                                           ),
                                                           SizedBox(
-                                                            width: 35,
+                                                            width: 20,
                                                           ),
                                                           Column(
                                                             crossAxisAlignment:
@@ -340,7 +334,7 @@ class _EmployeeViewState extends State<EmployeeView> {
                                                             ],
                                                           ),
                                                           SizedBox(
-                                                            width: 35,
+                                                            width: 20,
                                                           ),
                                                           Column(
                                                             crossAxisAlignment:
