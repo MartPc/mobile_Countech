@@ -23,7 +23,7 @@ class Employee {
     final bool estadoOcupado;
     final DateTime createdAt;
     final DateTime updatedAt;
-    final List<AsignarProcesoEmpleado> asignarProcesoEmpleados;
+    final List<dynamic> asignarProcesoEmpleados;
 
     Employee({
         required this.id,
@@ -58,7 +58,7 @@ class Employee {
         estadoOcupado: json["estadoOcupado"],
         createdAt: DateTime.parse(json["createdAt"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
-        asignarProcesoEmpleados: List<AsignarProcesoEmpleado>.from(json["asignarProcesoEmpleados"].map((x) => AsignarProcesoEmpleado.fromJson(x))),
+        asignarProcesoEmpleados: List<dynamic>.from(json["asignarProcesoEmpleados"].map((x) => x)),
     );
 
     Map<String, dynamic> toJson() => {
@@ -76,54 +76,6 @@ class Employee {
         "estadoOcupado": estadoOcupado,
         "createdAt": createdAt.toIso8601String(),
         "updatedAt": updatedAt.toIso8601String(),
-        "asignarProcesoEmpleados": List<dynamic>.from(asignarProcesoEmpleados.map((x) => x.toJson())),
-    };
-}
-
-class AsignarProcesoEmpleado {
-    final int id;
-    final int cantidadAsignada;
-    final int cantRestante;
-    final bool estadoProcAsig;
-    final bool estadoAnular;
-    final DateTime createdAt;
-    final DateTime updatedAt;
-    final int pedidoprocesoId;
-    final int empleadoId;
-
-    AsignarProcesoEmpleado({
-        required this.id,
-        required this.cantidadAsignada,
-        required this.cantRestante,
-        required this.estadoProcAsig,
-        required this.estadoAnular,
-        required this.createdAt,
-        required this.updatedAt,
-        required this.pedidoprocesoId,
-        required this.empleadoId,
-    });
-
-    factory AsignarProcesoEmpleado.fromJson(Map<String, dynamic> json) => AsignarProcesoEmpleado(
-        id: json["id"],
-        cantidadAsignada: json["cantidadAsignada"],
-        cantRestante: json["cantRestante"],
-        estadoProcAsig: json["estadoProcAsig"],
-        estadoAnular: json["estadoAnular"],
-        createdAt: DateTime.parse(json["createdAt"]),
-        updatedAt: DateTime.parse(json["updatedAt"]),
-        pedidoprocesoId: json["pedidoprocesoId"],
-        empleadoId: json["empleadoId"],
-    );
-
-    Map<String, dynamic> toJson() => {
-        "id": id,
-        "cantidadAsignada": cantidadAsignada,
-        "cantRestante": cantRestante,
-        "estadoProcAsig": estadoProcAsig,
-        "estadoAnular": estadoAnular,
-        "createdAt": createdAt.toIso8601String(),
-        "updatedAt": updatedAt.toIso8601String(),
-        "pedidoprocesoId": pedidoprocesoId,
-        "empleadoId": empleadoId,
+        "asignarProcesoEmpleados": List<dynamic>.from(asignarProcesoEmpleados.map((x) => x)),
     };
 }
