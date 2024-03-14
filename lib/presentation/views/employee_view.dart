@@ -378,7 +378,7 @@ class _EmployeeViewState extends State<EmployeeView> {
                                   padding: EdgeInsets.all(8),
                                   elevation: 0.0,
                                 ),
-                                child: Icon(Icons.more_vert),
+                                child: Icon(Icons.remove_red_eye_outlined),
                               ),
                             ),
                             leading: Container(

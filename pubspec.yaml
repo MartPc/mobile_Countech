@@ -38,6 +38,7 @@ dependencies:
   http: ^1.2.1
   dio: ^5.4.1
   accordion: ^2.6.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
