@@ -17,10 +17,10 @@ class Production {
     final DateTime fechaEntregaOrden;
     final String formaPago;
     final String valorTotal;
-    final String observaciones;
+    final String? observaciones;
     final String estado;
     final String estadoPago;
-    final dynamic fechaVenta;
+    final DateTime? fechaVenta;
     final bool estadoPedido;
     final dynamic motivoDeAnulacion;
     final String referencia;
@@ -69,7 +69,7 @@ class Production {
         observaciones: json["observaciones"],
         estado: json["estado"],
         estadoPago: json["estadoPago"],
-        fechaVenta: json["fechaVenta"],
+        fechaVenta: json["fechaVenta"] == null ? null : DateTime.parse(json["fechaVenta"]),
         estadoPedido: json["estadoPedido"],
         motivoDeAnulacion: json["motivoDeAnulacion"],
         referencia: json["referencia"],
@@ -94,7 +94,7 @@ class Production {
         "observaciones": observaciones,
         "estado": estado,
         "estadoPago": estadoPago,
-        "fechaVenta": fechaVenta,
+        "fechaVenta": "${fechaVenta!.year.toString().padLeft(4, '0')}-${fechaVenta!.month.toString().padLeft(2, '0')}-${fechaVenta!.day.toString().padLeft(2, '0')}",
         "estadoPedido": estadoPedido,
         "motivoDeAnulacion": motivoDeAnulacion,
         "referencia": referencia,
