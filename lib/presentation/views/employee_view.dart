@@ -64,6 +64,8 @@ class _EmployeeViewState extends State<EmployeeView> {
             margin: const EdgeInsets.all(10),
             child: filterItems == null
                 ? const CircularProgressIndicator()
+                : filterItems!.isEmpty
+                ? const Text('No se encontraron empleados')
                 : ListView.builder(
                     itemCount: filterItems?.length ?? 0,
                     itemBuilder: (BuildContext context, int index) {
