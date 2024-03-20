@@ -43,7 +43,7 @@ class _ProductionViewState extends State<ProductionView> {
     void searchItem(String text) {
     setState(() {
       filterItems = production!
-          .where((i) => i.ordenTrabajo.toLowerCase().contains(text.toLowerCase()) && i.estado != 'Terminado')
+          .where((i) => i.ordenTrabajo.toLowerCase().contains(text.toLowerCase()) && i.estado != 'Terminado' && i.estadoPedido != false)
           .toList();
     });
   }
